@@ -8,9 +8,9 @@ import PromptSuggestionBox from "./components/PromptSuggestionBox";
 import LoadingBubble from "./components/LoadingBubble";
 
 const Home = () => {
-    const noMessages = true;
     const { append, isLoading, messages, input, handleInputChange, handleSubmit } = useChat();
-    
+    const noMessages = !messages || messages.length === 0;
+
     const handlePrompt = ( promptText ) => {
         const msg: Message = {
             id: crypto.randomUUID(),
